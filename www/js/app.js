@@ -1,24 +1,34 @@
-// Ionic Starter App
+angular.module('App', ['ionic'])
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+// .run(function($ionicPlatform) {
+//   $ionicPlatform.ready(function() {
+//     if(window.cordova && window.cordova.plugins.Keyboard) {
+//       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+//     }
+//     if(window.StatusBar) {
+//       StatusBar.styleDefault();
+//     }
+//   });
+// })
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+.factory('Geolocation', function() {
+  return {
+    "formatted_address": "Chicago, IL, USA",
+    "geometry": {
+      "location": {
+        "lat": 41.8781136,
+        "lng": -87.6297982
+      }
+    },
+    "place_id": "ChIJ7cv00DwsDogRAMDACa2m4K8"
+  };
+})
 
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
+.factory('Types', function() {
+  return [
+    {type: 'Park', enabled: true},
+    {type: 'Hospital', enabled: true},
+    {type: 'Library', enabled: true},
+    {type: 'Museum', enabled: true}
+  ];
 })
